@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+          overflow: hidden;
+          background-color: #333;
+        }
+
+        .topnav a {
+          float: left;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+
+        .topnav a:hover {
+          background-color: #8cfc03;
+          color: black;
+        }
+        button{
+          background-color: #2b2b28;
+          color: white;
+          text-align:center
+          border-radius: 20px;
+          font-size: 18px;
+
+        }
+        button:hover{
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+button:active {
+    background-color: blue;
+}
+
+        .topnav a.active {
+          background-color: #04AA6D;
+          color: white;
+        }
+
+
+
+    </style>
+    <title>Find Owner</title>
+</head>
+<body>
+<div class="topnav">
+    <a th:href="@{index}">Home</a>
+    <a th:href="@{index}">Find owners</a>
+    <a th:href="@{index}">Veterinarians</a>
+    <a th:href="@{index}">Error page</a>
+</div>
+<div style="margin-left: 400px;margin-top: 100px;">
+<h3 style="font-weight: bold;font-size: 30px;">Find Owner</h3>
+<form style="font-size: 20px;">
+    <label for="lname">Last name:</label><br>
+    <input style="  width: 50%;height: 30px" type="text" id="lname" name="lname"><br>
+</form><br>
+
+<button style = "padding: 10px 15px;" type="FindOwner" formaction="/home.html">Find Owner</button><br><br>
+    <button style="padding: 10px 15px;" type="AddOwner" formaction="/home.html">Add Owner</button><br>
+    <img style="text-align:center;margin-top:300px;margin-left:400px" src="/springlogo.png" width="25%" height="75px">
+
+
+</div>
+
+
+</body>
+</html>

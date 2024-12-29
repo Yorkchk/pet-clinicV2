@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+          overflow: hidden;
+          background-color: #333;
+        }
+
+        .topnav a {
+          float: left;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+
+        .topnav a:hover {
+          background-color: #8cfc03;
+          color: black;
+        }
+
+        .topnav a.active {
+          background-color: #04AA6D;
+          color: white;
+        }
+    </style>
     <title>Pet clinic</title>
 </head>
 <body>
-<h1>Pet clinic home page</h1>
+<div class="topnav">
+    <a th:href="@{index}">Home</a>
+    <a th:href="@{find}">Find owners</a>
+    <a th:href="@{index}">Veterinarians</a>
+    <a th:href="@{index}">Error page</a>
+</div>
+<div style="text-align:center;margin-top: 200px;">
+<h2>Welcome to the pet clinic</h2>
+<img src="/pets.png" vwidth="460" height="345">
+</div>
+
 
 </body>
 </html>

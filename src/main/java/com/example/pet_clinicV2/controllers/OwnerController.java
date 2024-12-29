@@ -21,4 +21,9 @@ public class OwnerController {
     public String home(){
         return "home";
     }
+
+    @RequestMapping("/find")
+    public String findOwner(){
+        return "searchOwner";
+    }
 }
