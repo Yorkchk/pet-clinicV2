@@ -18,6 +18,7 @@ public class Specialty extends BaseEntity{
         super();
         this.label = label;
     }
+    public Specialty(){}
 
     public String getLabel() {
         return label;

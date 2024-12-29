@@ -14,4 +14,13 @@ public class Vet extends Person{
     public Vet(String firstName, String lastName) {
         super(firstName, lastName);
     }
+    public Vet(){}
+
+    public Specialty getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(Specialty specialty) {
+        this.specialty = specialty;
+    }
 }

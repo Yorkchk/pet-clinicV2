@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping(path="/owner")
+@RequestMapping("/")
 public class OwnerController {
 
     private OwnerInt ownerInt;
@@ -17,13 +17,16 @@ public class OwnerController {
         this.ownerInt = ownerInt;
     }
 
-    @RequestMapping("/index")
+    @RequestMapping("index")
     public String home(){
         return "home";
     }
 
-    @RequestMapping("/find")
+    @RequestMapping("find")
     public String findOwner(){
         return "searchOwner";
     }
+
+//    @RequestMapping("vets")
+//    public String vetList(){return "redirect:/vets";}
 }

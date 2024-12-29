@@ -7,7 +7,26 @@
           margin: 0;
           font-family: Arial, Helvetica, sans-serif;
         }
+        tr:nth-child(even) {
+            background-color: #cfcfcf;
+}
+        .rowhead{
+            background-color:  #333;
+            color :white;
+            text-align : left;
+        }
+        table{
+            width:95%;
+            height: 50%;
+            font-size: 25px;
+        }
+        tr{
+            height:20px
 
+        }
+        h3{
+              font-weight: bold;
+        }
         .topnav {
           overflow: hidden;
           background-color: #333;
@@ -32,7 +51,7 @@
           color: white;
         }
     </style>
-    <title>Pet clinic</title>
+    <title>Vets</title>
 </head>
 <body>
 <div class="topnav">
@@ -41,11 +60,20 @@
     <a th:href="@{vets}">Veterinarians</a>
     <a th:href="@{index}">Error page</a>
 </div>
-<div style="text-align:center;margin-top: 200px;">
-<h2>Welcome to the pet clinic</h2>
-<img src="/pets.png" vwidth="460" height="345">
+<div style="margin-left: 50px;">
+    <h3>Veterinarians</h3>
+    <table>
+        <tr class="rowhead">
+            <th>Name</th>
+            <th>Specialties</th>
+        </tr>
+        <tr th:each="vet : ${vets}">
+            <td th:text="${vet.firstName + ' ' + vet.lastName}"></td>
+            <td th:text="${vet.specialty.label}"></td>
+        </tr>
+    </table>
 </div>
-
+<img style="text-align:center;margin-top:200px;margin-left:400px" src="/springlogo.png" width="25%" height="75px">
 
 </body>
 </html>
