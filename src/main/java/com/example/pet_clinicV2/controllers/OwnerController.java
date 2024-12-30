@@ -4,6 +4,7 @@ import com.example.pet_clinicV2.serviceInt.OwnerInt;
 import com.example.pet_clinicV2.services.OwnerImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -27,6 +28,5 @@ public class OwnerController {
         return "searchOwner";
     }
 
-//    @RequestMapping("vets")
-//    public String vetList(){return "redirect:/vets";}
+
 }

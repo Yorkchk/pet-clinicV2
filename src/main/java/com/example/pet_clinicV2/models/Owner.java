@@ -25,6 +25,7 @@ public class Owner extends Person{
         this.city = city;
         this.telephone = telephone;
     }
+    public Owner(){}
 
     public String getAddress() {
         return address;
@@ -48,5 +49,13 @@ public class Owner extends Person{
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
     }
 }
