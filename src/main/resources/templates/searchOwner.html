@@ -60,18 +60,23 @@ button:active {
 </div>
 <div style="margin-left: 400px;margin-top: 100px;">
 <h3 style="font-weight: bold;font-size: 30px;">Find Owner</h3>
-<form style="font-size: 20px;">
+
+<form th:action="@{findOwner}" style="font-size: 20px;">
     <label for="lname">Last name:</label><br>
-    <input style="  width: 50%;height: 30px" type="text" id="lname" name="lname"><br>
+    <input style="  width: 50%;height: 30px" type="text" id="lname" name="lname"><br><br>
+
+    <button style = "padding: 10px 15px;" type="submit">Find Owner</button><br>
+
 </form><br>
 
-    <a th:href="@{owners}">
-<button style = "padding: 10px 15px;" type="FindOwner" formaction="/home.html">Find Owner</button><br><br>
-        <a th:href="@{addOwner}">
+
+        <a th:href="@{addOwner}"/>
         <button style="padding: 10px 15px;" type="AddOwner" formaction="/home.html">Add Owner</button><br>
     <img style="text-align:center;margin-top:300px;margin-left:400px" src="/springlogo.png" width="25%" height="75px">
 
-
+    <div style="font-size:20px" class="form-group">
+        <span th:text="${errorMessage}" class="text-danger"></span>
+    </div>
 </div>
 
 

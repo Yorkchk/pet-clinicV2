@@ -13,9 +13,5 @@ public class PetController {
         this.petService = petService;
     }
 
-    @RequestMapping("owners")
-    public String getAllPets(Model model){
-        model.addAttribute("pets",petService.getAllPets());
-        return "ownersList";
-    }
+
 }

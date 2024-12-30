@@ -70,12 +70,14 @@
             <th>Telephone</th>
             <th>Pets</th>
         </tr>
-        <tr th:each="pet : ${pets}">
-            <td th:text="${pet.owner.firstName + ' ' + pet.owner.lastName}"></td>
-            <td th:text="${pet.owner.address}"></td>
-            <td th:text="${pet.owner.city}"></td>
-            <td th:text="${pet.owner.Telephone}"></td>
-            <td th:text="${pet.name}"></td>
+        <tr th:each="owner : ${owners}">
+            <td th:text="${owner.firstName + ' ' + owner.lastName}"></td>
+            <td th:text="${owner.address}"></td>
+            <td th:text="${owner.city}"></td>
+            <td th:text="${owner.Telephone}"></td>
+            <div th:each="pet : ${pets}">
+                <td th:if="${owner.id == pet.owner.id}" th:text="${pet.name + ','}"></td>
+            </div>
 
         </tr>
     </table>

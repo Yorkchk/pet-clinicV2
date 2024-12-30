@@ -30,4 +30,9 @@ public class PetImpl implements PetInt {
     public Pet addPet(Pet pet) {
         return petRepo.save(pet);
     }
+
+    @Override
+    public List<Pet> findPetsByLastName(String lastName) {
+        return petRepo.findByOwnerLastNameNative(lastName);
+    }
 }

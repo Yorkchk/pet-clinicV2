@@ -10,4 +10,6 @@ public interface PetInt {
     List<Pet> getAllPets();
 
     Pet addPet(Pet pet);
+
+    List<Pet> findPetsByLastName(String lastName);
 }
