@@ -66,15 +66,16 @@ public class OwnerController {
         }
     }
 
-    @RequestMapping("saveOwner")
-    public String saveOwner(@ModelAttribute("owner") Owner owner){
+    @RequestMapping("saveOwner/{id}")
+    public String saveOwner(@ModelAttribute("owner") Owner owner, @PathVariable("id")Long id){
+        owner.setId(id);
         ownerInt.addOwner(owner);
-        return "home";
+        return "redirect:/index";
     }
 
     @RequestMapping("editOwner/{id}")
-    public String editOwner(@PathVariable("id")Long id){
-        System.out.println(ownerInt.findOwnerById(id).getLastName());
-        return "ownersList";
+    public String editOwner(@PathVariable("id")Long id, Model model){
+        model.addAttribute("owner", ownerInt.findOwnerById(id));
+        return "editOwner";
     }
 }

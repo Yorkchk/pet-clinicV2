@@ -15,8 +15,14 @@ public class PetController {
     }
 
     @RequestMapping("/addPet/{id}")
-    public String addPet(@PathVariable("id")Long id){
-        System.out.println(id);
-        return "";
+    public String addPet(@PathVariable("id")Long id, Model model){
+        model.addAttribute("owner_id", id);
+        return "addPet";
+    }
+
+    @RequestMapping("/editPet/{id}")
+    public String editPet(@PathVariable("id")Long id, Model model){
+        model.addAttribute("pet", petService.getPetById(id));
+        return "editPet";
     }
 }
