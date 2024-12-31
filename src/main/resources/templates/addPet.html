@@ -1,10 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        label{
+            font-size:20px
+        }
+        input[type=text]{
+             width: 90%;
+             border-radius: 4px;
+             border-color:#e0dfdc;
+             height:25px;
+        }
+        input[type=text][type=date]:focus {
+  border: 3px solid #626ade;
+}
+        input[type=submit]{
+            background-color: #2b2b28;
+          color: white;
+          text-align:center;
+          border-radius: 20px;
+          font-size: 18px;
+
+        }
+
+        .topnav {
+          overflow: hidden;
+          background-color: #333;
+        }
+
+        .topnav a {
+          float: left;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+
+        .topnav a:hover {
+          background-color: #8cfc03;
+          color: black;
+        }
+
+        .topnav a.active {
+          background-color: #04AA6D;
+          color: white;
+        }
+    </style>
+    <title>addOwner</title>
 </head>
 <body>
+<div class="topnav">
+    <a th:href="@{index}">Home</a>
+    <a th:href="@{find}">Find owners</a>
+    <a th:href="@{vets}">Veterinarians</a>
+    <a th:href="@{index}">Error page</a>
+</div>
+<div style="margin-left: 50px;">
+    <h3>Add Pet Info</h3>
+    <form th:action="@{'/savePet/' + ${owner_id}}">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="birthDate">birthDate</label><br><br>
+        <input type="date" id="birthDate" name="birthDate"><br><br>
 
+        <h3>Pet Type</h3>
+        <input type="radio" id="CAT" name="petType" value="CAT">
+        <label for="CAT">Cat</label><br>
+        <input type="radio" id="DOG" name="petType" value="DOG">
+        <label for="DOG">Dog</label><br>
+        <input type="radio" id="LIZARD" name="petType" value="LIZARD">
+        <label for="LIZARD">Lizard</label><br>
+        <input type="radio" id="HAMSTER" name="petType" value="HAMSTER">
+        <label for="HAMSTER">Hamster</label><br>
+        <input type="radio" id="SNAKE" name="petType" value="SNAKE">
+        <label for="SNAKE">Snake</label>
+
+        <br><br><br>
+        <input type="submit" value="Save">
+    </form>
+</div>
 </body>
 </html>
