@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+          overflow: hidden;
+          background-color: #333;
+        }
+
+        .topnav a {
+          float: left;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+
+        .topnav a:hover {
+          background-color: #8cfc03;
+          color: black;
+        }
+
+        .topnav a.active {
+          background-color: #04AA6D;
+          color: white;
+        }
+          tr:nth-child(even) {
+            background-color: #cfcfcf;
+}
+        table{
+            width:95%;
+            height: 50%;
+            font-size: 25px;
+        }
+        tr{
+            height:20px;
+
+        }
+        th{
+            text-align:left
+        }
+        button{
+          background-color: #2b2b28;
+          color: white;
+          text-align:center;
+          border-radius: 20px;
+          font-size: 18px;
+            padding: 10px 15px;
+        }
+        button:hover{
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+button:active {
+    background-color: blue;
+}
+    </style>
+    <title>Owner Details</title>
+</head>
+<body>
+<div class="topnav">
+    <a th:href="@{index}">Home</a>
+    <a th:href="@{find}">Find owners</a>
+    <a th:href="@{vets}">Veterinarians</a>
+    <a th:href="@{index}">Error page</a>
+</div>
+
+<div style="margin-left:50px">
+    <h2>Owner Information</h2>
+    <div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <td th:text="${owner.firstName + ' ' + owner.lastName}"></td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td th:text="${owner.address}"></td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td th:text="${owner.city}"></td>
+        </tr>
+        <tr>
+            <th>Telephone</th>
+            <td th:text="${owner.telephone}"></td>
+        </tr>
+    </table>
+    </div><br>
+
+    <div>
+        <form th:action="@{'/editOwner/' + ${owner.id}}" method="post">
+            <button>Edit Owner</button>
+        </form><br>
+        <form th:action="@{'/addPet/' + ${owner.id}}" method="post">
+            <button>Add New Pet</button>
+        </form>
+    </div><br><br>
+
+    <div>
+        <h2>Pets and Visits</h2>
+        <div  th:each="pet : ${pets}"><br>
+            <table>
+                <tr>
+                <th>Name</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td th:text="${pet.name}"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Birth Date</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td th:text="${pet.birthDate}"></td>
+                    <td style="text-align:center;">Visit Date Description</td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td>
+                        <a th:href="@{'/editPet/' + ${pet.id}}"/>
+                        <span style="margin-left:150px" th:text="'Edit Pet'"></span>
+                        <a th:href="@{'addVisit/' + ${pet.id}}"/>
+                        <span style="margin-left:200px" th:text="'Add Visit'"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td th:text="${pet.petType}"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -60,7 +61,7 @@ public class OwnerController {
             else{
                 modelMap.addAttribute("owner", owner);
                 modelMap.addAttribute("pets", petInt.findPetsByLastName(owner.getLastName()));
-                return "";
+                return "ownerDetails";
             }
         }
     }
@@ -69,5 +70,11 @@ public class OwnerController {
     public String saveOwner(@ModelAttribute("owner") Owner owner){
         ownerInt.addOwner(owner);
         return "home";
+    }
+
+    @RequestMapping("editOwner/{id}")
+    public String editOwner(@PathVariable("id")Long id){
+        System.out.println(ownerInt.findOwnerById(id).getLastName());
+        return "ownersList";
     }
 }
