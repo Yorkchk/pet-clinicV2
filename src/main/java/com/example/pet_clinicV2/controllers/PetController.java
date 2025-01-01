@@ -52,4 +52,12 @@ public class PetController {
 
         return "redirect:/index";
     }
+    @RequestMapping("/addVisit/{petId}/{ownerId}")
+    public String addVisit(@PathVariable("petId")Long petId,
+                           @PathVariable("ownerId")Long ownerId,
+                           Model model){
+        model.addAttribute("pet", petService.getPetById(petId));
+        model.addAttribute("owner", ownerInt.findOwnerById(ownerId));
+        return "createVisit";
+    }
 }

@@ -37,4 +37,12 @@ public class Visit extends BaseEntity {
     public void setDesc(String desc) {
         this.description = desc;
     }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
 }

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+          margin: 20px;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+          overflow: hidden;
+          background-color: #333;
+        }
+
+        .topnav a {
+          float: left;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+
+        .topnav a:hover {
+          background-color: #8cfc03;
+          color: black;
+        }
+
+        .topnav a.active {
+          background-color: #04AA6D;
+          color: white;
+        }
+        table{
+            width:90%;
+            height:20px;
+        }
+        td{
+            text-align:center;
+        }
+        .table-row-head{
+            background-color:#1c1c1c;
+            color:white;
+        }
+        .table-row-data{
+            background-color:#c2c2c2;
+            color:black;
+        }
+        label{
+              font-weight: bold;
+        }
+        input[type="submit"]{
+          background-color: #2b2b28;
+          color: white;
+          text-align:center;
+          border-radius: 20px;
+          font-size: 18px;
+            padding: 10px 15px;
+        }
+        input[type="submit"]:hover{
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        input[type="submit"]:active {
+            background-color: blue;
+        }
+        input[type="text"][type="date"]{
+            width:90%;
+            height:20px
+        }
+    </style>
+    <title>Add Visit</title>
+</head>
+<body>
+<div class="topnav">
+    <a th:href="@{index}">Home</a>
+    <a th:href="@{find}">Find owners</a>
+    <a th:href="@{vets}">Veterinarians</a>
+    <a th:href="@{index}">Error page</a>
+</div>
+<div>
+    <h2>New Visit</h2>
+    <h3>Pet</h3>
+    <table>
+        <tr class="table-row-head">
+            <th>Name</th>
+            <th>Birth Date</th>
+            <th>Type</th>
+            <th>Owner</th>
+        </tr>
+        <tr class="table-row-data">
+            <td th:text="${pet.name}"></td>
+            <td th:text="${pet.birthDate}"></td>
+            <td th:text="${pet.petType}"></td>
+            <td th:text="${owner.firstName + ' ' + owner.lastName}"></td>
+        </tr>
+    </table>
+</div><br>
+<div>
+    <form th:action="@{'/saveVisit/' + ${pet.id} + '/' + ${owner.id}}">
+        <label for="birthDate">BirthDate</label><br>
+        <input type="date" id="birthDate" name="birthDate" required><br><br>
+        <label for="description">Description</label><br>
+        <input type="text" id="description" name="description" required><br><br>
+
+        <input type="submit" value="Add Visit">
+
+    </form>
+</div>
+
+</body>
+</html>
