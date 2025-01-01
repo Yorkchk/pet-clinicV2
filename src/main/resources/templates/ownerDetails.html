@@ -126,7 +126,7 @@ button:active {
                 <tr>
                     <th>Type</th>
                     <td>
-                        <a th:href="@{'/editPet/' + ${pet.id}}"/>
+                        <a th:href="@{'/editPet/' + ${pet.id} + '/' + ${owner.id}}"/>
                         <span style="margin-left:150px" th:text="'Edit Pet'"></span>
                         <a th:href="@{'addVisit/' + ${pet.id}}"/>
                         <span style="margin-left:200px" th:text="'Add Visit'"></span>

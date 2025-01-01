@@ -26,9 +26,10 @@ public class PetController {
         return "addPet";
     }
 
-    @RequestMapping("/editPet/{id}")
-    public String editPet(@PathVariable("id")Long id, Model model){
+    @RequestMapping("/editPet/{petId}/{ownerId}")
+    public String editPet(@PathVariable("petId")Long id,@PathVariable("ownerId")Long ownerId, Model model){
         model.addAttribute("pet", petService.getPetById(id));
+        model.addAttribute("owner_id", ownerId);
         return "editPet";
     }
 
@@ -37,6 +38,17 @@ public class PetController {
         Pet newPet = new Pet(pet.getName(),pet.getBirthDate(),pet.getPetType());
         newPet.setOwner(ownerInt.findOwnerById(ownerId));
         petService.addPet(newPet);
+
+        return "redirect:/index";
+    }
+
+    @RequestMapping("/updatePet/{petId}/{ownerId}")
+    public String editPet(@PathVariable("petId") Long petId,
+                          @ModelAttribute("pet") Pet pet,
+                          @PathVariable("ownerId") Long ownerId){
+        pet.setId(petId);
+        pet.setOwner(ownerInt.findOwnerById(ownerId));
+        petService.addPet(pet);
 
         return "redirect:/index";
     }
